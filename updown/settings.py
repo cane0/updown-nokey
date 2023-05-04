@@ -11,8 +11,6 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
-import sentry_sdk
-from sentry_sdk.integrations.django import DjangoIntegration
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -102,44 +100,6 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
-
-# import sentry_sdk
-
-# def traces_sampler(sampling_context):
-#     # ...
-#     return 1.0
-
-# sentry_sdk.init(
-#     dsn="https://d8f758c0f3c6434abb7087b183347a8f@o4505122189279232.ingest.sentry.io/4505122191966208",
-
-
-
-#     # To set a uniform sample rate
-#     # Set traces_sample_rate to 1.0 to capture 100%
-#     # of transactions for performance monitoring.
-#     # We recommend adjusting this value in production,
-#     traces_sample_rate=1.0,
-
-#     # Alternatively, to control sampling dynamically
-#     traces_sampler=traces_sampler
-# )
-
-sentry_sdk.init(
-    dsn="https://364ce469d7a841d68bc1248cd84aa9a7@o4505122189279232.ingest.sentry.io/4505122528952320",
-    integrations=[
-        DjangoIntegration(),
-    ],
-
-    # Set traces_sample_rate to 1.0 to capture 100%
-    # of transactions for performance monitoring.
-    # We recommend adjusting this value in production.
-    traces_sample_rate=1.0,
-
-    # If you wish to associate users to errors (assuming you are using
-    # django.contrib.auth) you may enable sending PII data.
-    send_default_pii=True
-)
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
